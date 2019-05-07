@@ -1,0 +1,115 @@
+DOCKER COMMANDS
+
+1. docker images - show all images
+----------------------------------------
+Note: Images you can search on GitHub
+----------------------------------------
+2. docker run <image_name>
+Result:
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+--Tomcat - it is WEB server
+--Containers it is like small virtual machines
+--Images it
+
+ 3. docker search <image_name> - it is searching the images. it is searching it in Docker hub
+ 4. docker pull <image_name> - it downloads an image from the Docker hub
+
+ 5. docker ps - it displays which containers are running now
+ 6. docker ps -a - it displays which contains are running for whole period
+
+ 7. docker run -it -p 1234:8080 tomcat  - run container with tomcat server image
+ 7.1. -it - it means 'run the container interactively - it will not run in the background'
+ 7.2. -p - it means ports redirection
+ 7.3. 1234 port - you create this port to have an access to 8080 port, the access port can be anything it does not matter
+ 7.4. 8080 port - the port of tomcat server
+ 7.5. tomcat - image
+
+ 8. open the image in web page: localhost:1234 and the image will work
+
+ 9. docker run -d -p 1235:8080 tomcat  - run tomcat in the background
+ 9.1. -d - in background - daemon
+ 9.2. As a result it displays container ID 'cc1f3315dbd3d768ddf54ce0c3459e63034e6c0c86b49f656eca2a9dabd399ef'
+
+ ----------------------------------------------------------------------------------------------------------------------------
+ CONTAINER ID        IMAGE                      COMMAND             CREATED             STATUS              PORTS                    NAMES
+43c69353703a        tomcat                     "catalina.sh run"   8 seconds ago       Up 4 seconds        0.0.0.0:1235->8080/tcp   practical_meninsky
+cc1f3315dbd3        tomcat                     "catalina.sh run"   3 minutes ago       Up 3 minutes        0.0.0.0:1234->8080/tcp   vigilant_robinson
+97fb93f5ee3b        hannaismahilova/shopizer   "catalina.sh run"   5 hours ago         Up 5 hours          0.0.0.0:8080->8080/tcp   determined_wiles
+
+ABOVE it is like small VM in a big VM
+----------------------------------------------------------------------------------------------------------------------------
+
+10. EXAMPLE with different images
+docker run -d -p 1237:80 nginx
+10.1. 80 port - it is a port for nginx server
+
+11. Remove image
+docker rmi <image_name_or_ID>
+----------------------------------------
+Result:
+C:\Users\Hanna_Ismahilova>docker rm 4f8bcf3145f2
+
+4f8bcf3145f2
+----------------------------------------
+
+If you have an error like : unable repository reference 'hello-world' (must force) - container <container_ID> is using its referenced image <image_name>
+Then you need remove container first
+
+12. Remove container
+docker rm <container_name_or_ID>
+----------------------------------------
+Result:
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:92695bc579f31df7a63da6922075d0666e565ceccad16b59c3374d2cf4e8e50e
+Deleted: sha256:fce289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e
+Deleted: sha256:af0b15c8625bb1938f1d7b17081031f649fd14e6b233688eea3c5483994a66a3
+----------------------------------------
+
+13.Dockerfile -  there are configs
+----------------------------------------
+Note: to build the app you need > navigate to the Dockerfile location and perform step 14
+----------------------------------------
+
+14. docker build -t <image_name>:<tagname> . - e.g. hannaismahilova/shopizer:latest
+14.1. the image is building
+14.2. the dot '.' means that it will be build locally
+14.3 it will be built locally
+
+15. Login to the container
+docker exec -it <container_name_or_ID> /bin/bash
+
+----------------------------------------
+Note: "exit" to logout from the container
+----------------------------------------
+
+16.
+
+
+
+
+
+
+
+
+docker run -p 8080:8080 --name demo 21c91d8b5d87
