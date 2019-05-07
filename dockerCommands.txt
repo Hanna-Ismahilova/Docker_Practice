@@ -2,7 +2,7 @@ DOCKER COMMANDS
 
 1. docker images - show all images
 ----------------------------------------
-Note: Images you can search on GitHub
+Note: Images you can search on DockerHub
 ----------------------------------------
 2. docker run <image_name>
 Result:
